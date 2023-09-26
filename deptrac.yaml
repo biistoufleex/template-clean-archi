@@ -1,0 +1,56 @@
+# Exemple de controle de gestion de couche de l'application
+parameters:
+  paths:
+    - ./src/
+  exclude_files: ~
+ 
+  layers:
+    -
+      name: UseCase
+      collectors:
+        -
+          type: className
+          regex: Domain\\UseCase\\.*
+    -
+      name: Request
+      collectors:
+        -
+          type: className
+          regex: Domain\\Request\\.*
+    -
+      name: Response
+      collectors:
+        -
+          type: className
+          regex: Domain\\Response\\.*
+    -
+      name: Gateway
+      collectors:
+        -
+          type: className
+          regex: Domain\\Gateway\\.*
+    -
+      name: Entity
+      collectors:
+        -
+          type: className
+          regex: Domain\\Entity\\.*
+    -
+      name: Tool
+      collectors:
+        -
+          type: className
+          regex: Domain\\Tool\\.*
+    
+    
+  ruleset:
+    UseCase:
+      - Request
+      - Response
+      - Gateway
+      - Entity
+      - Tool
+    Gateway:
+      - Entity
+    Request:
+      - Entity
