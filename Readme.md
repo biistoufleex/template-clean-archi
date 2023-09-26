@@ -74,47 +74,42 @@ L'utilisation de l'architecture Clean avec Symfony permet de créer des applicat
 
 # exemple structure 
 
+# Architecture Clean en Trois Couches pour un Projet Symfony
 
-- `my_clean_app/` : Le répertoire racine de votre application Symfony.
+L'architecture Clean est une approche de conception logicielle qui favorise la séparation claire des préoccupations et la maintenabilité de l'application. Elle divise une application en trois couches distinctes : Domain, Application et Infrastructure.
 
-- `src/` : Le répertoire source principal de votre projet.
+## 1. Couche Domain
+La couche Domain est la couche centrale de l'application. Elle contient le cœur métier de l'application et représente le domaine fonctionnel de l'application.
 
-  - `Application/` : La partie Application de l'architecture Clean.
+- **Entités :** Les entités sont les objets métier de base, comme les utilisateurs, les produits, etc. Elles encapsulent l'état et le comportement liés au domaine.
 
-    - `UseCase/` : Les cas d'utilisation (Use Cases) et leurs interfaces.
+- **Agrégats :** Les agrégats sont des groupes d'entités et de valeurs objets associés. Ils garantissent la cohérence des données et des invariants.
 
-    - `Service/` : Les services applicatifs et leurs interfaces.
+- **Valeurs Objets :** Les valeurs objets sont des objets immuables qui représentent des concepts du domaine, comme les adresses, les dates, etc.
 
-  - `Domain/` : La partie Domain de l'architecture Clean.
+- **Repositories :** Les interfaces de repository définissent des contrats pour la persistance des entités et des agrégats. Les implémentations concrètes se trouvent dans la couche Infrastructure.
 
-    - `Entity/` : Les entités, agrégats et valeurs objets.
+## 2. Couche Application
+La couche Application gère la logique métier de haut niveau et expose les cas d'utilisation, qui décrivent les actions spécifiques que l'application peut effectuer.
 
-    - `Repository/` : Les interfaces de repository et leurs implémentations.
+- **Cas d'Utilisation (Use Cases) :** Les cas d'utilisation définissent des scénarios d'utilisation de l'application. Ils sont définis sous forme d'interfaces dans cette couche et implémentés dans la couche Application.
 
-  - `Infrastructure/` : La partie Infrastructure de l'architecture Clean.
+- **Services Applicatifs :** Les services applicatifs orchestrent l'exécution des cas d'utilisation. Ils peuvent regrouper plusieurs cas d'utilisation pour des opérations complexes.
 
-    - `Persistence/` : Les composants liés à la persistance, tels que les repositories Doctrine.
+- **Validation des Entrées :** La validation des entrées et des données utilisateur se fait généralement dans cette couche pour garantir la conformité avec les règles métier.
 
-    - `Web/` : Les composants liés à l'interface utilisateur Web, tels que les contrôleurs Symfony.
+- **Gestion des Erreurs :** La gestion des erreurs métier, y compris la génération d'exceptions personnalisées, est gérée ici.
 
-- `config/` : Les fichiers de configuration Symfony, y compris les paramètres, les services, etc.
+## 3. Couche Infrastructure
+La couche Infrastructure gère les détails techniques et les dépendances externes de l'application.
 
-- `templates/` : Les fichiers de templates Twig (si vous utilisez Symfony pour la création de vues).
+- **Persistence :** Cette couche gère l'interaction avec la base de données. Les implémentations concrètes des repositories définis dans la couche Domain se trouvent ici (par exemple, avec Doctrine).
 
-- `tests/` : Les fichiers de tests unitaires pour tester la logique métier.
+- **Communication Externe :** Les appels à des services externes, des API, des systèmes de messagerie, etc., sont gérés dans cette couche.
 
-- `var/` : Les fichiers de données temporaires et de cache générés par Symfony.
+- **Gestion des Autorisations :** Les aspects liés à la sécurité, tels que la gestion des autorisations et de l'authentification, sont pris en charge ici.
 
-- `vendor/` : Les dépendances installées via Composer.
+- **Configuration :** Les paramètres de configuration de l'application, tels que la configuration de la base de données et d'autres services, sont définis ici.
 
-- `.env` : Le fichier d'environnement qui contient des variables d'environnement.
+Cette architecture permet une séparation claire des préoccupations et facilite la maintenance, l'évolutivité et les tests de l'application Symfony.
 
-- `.gitignore` : Le fichier pour spécifier les fichiers et répertoires à ignorer dans Git.
-
-- `composer.json` : Le fichier de configuration Composer pour la gestion des dépendances.
-
-- `phpunit.xml.dist` : Le fichier de configuration PHPUnit pour les tests unitaires.
-
-- `README.md` : La documentation de votre projet.
-
-Cette structure de projet vous permet de séparer clairement les différentes parties de l'architecture Clean (Domain, Application, Infrastructure) et de les organiser de manière modulaire pour une maintenance facile et une séparation claire des préoccupations. Vous pouvez personnaliser davantage cette structure en fonction des besoins spécifiques de votre projet.
