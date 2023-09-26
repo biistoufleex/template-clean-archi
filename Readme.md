@@ -74,58 +74,47 @@ L'utilisation de l'architecture Clean avec Symfony permet de créer des applicat
 
 # exemple structure 
 
-my_clean_app/
-├── src/
-│   ├── Application/
-│   │   ├── UseCase/
-│   │   │   ├── CreateAuthTokenUseCase.php
-│   │   │   ├── ... (autres cas d'utilisation)
-│   │   │   └── CreateAuthTokenUseCaseInterface.php
-│   │   ├── Service/
-│   │   │   ├── UserService.php
-│   │   │   ├── ... (autres services applicatifs)
-│   │   │   └── UserServiceInterface.php
-│   │   └── ... (autres composants de la partie Application)
-│   ├── Domain/
-│   │   ├── Entity/
-│   │   │   ├── User.php
-│   │   │   ├── ... (autres entités)
-│   │   │   └── ValueObject/
-│   │   │       ├── Email.php
-│   │   │       ├── ... (autres valeurs objets)
-│   │   ├── Repository/
-│   │   │   ├── UserRepository.php
-│   │   │   ├── ... (autres repositories)
-│   │   │   └── UserRepositoryInterface.php
-│   │   └── ... (autres composants de la partie Domain)
-│   ├── Infrastructure/
-│   │   ├── Persistence/
-│   │   │   ├── Doctrine/
-│   │   │   │   ├── UserRepository.php
-│   │   │   │   ├── ... (autres repositories Doctrine)
-│   │   │   │   └── DoctrineUserRepository.php
-│   │   │   └── ... (autres composants de persistance)
-│   │   ├── Web/
-│   │   │   ├── Controller/
-│   │   │   │   ├── AuthController.php
-│   │   │   │   ├── ... (autres contrôleurs)
-│   │   │   │   └── UserController.php
-│   │   │   └── ... (autres composants Web)
-│   │   └── ... (autres composants de la partie Infrastructure)
-│   └── ... (autres composants globaux du projet)
-├── config/
-│   ├── packages/
-│   │   ├── parameters.yaml
-│   │   └── ... (autres fichiers de configuration)
-│   ├── services.yaml
-│   └── ... (autres fichiers de configuration Symfony)
-├── templates/
-├── tests/
-├── var/
-├── vendor/
-├── .env
-├── .gitignore
-├── composer.json
-├── phpunit.xml.dist
-├── README.md
-└── ... (autres fichiers et répertoires du projet)
+
+- `my_clean_app/` : Le répertoire racine de votre application Symfony.
+
+- `src/` : Le répertoire source principal de votre projet.
+
+  - `Application/` : La partie Application de l'architecture Clean.
+
+    - `UseCase/` : Les cas d'utilisation (Use Cases) et leurs interfaces.
+
+    - `Service/` : Les services applicatifs et leurs interfaces.
+
+  - `Domain/` : La partie Domain de l'architecture Clean.
+
+    - `Entity/` : Les entités, agrégats et valeurs objets.
+
+    - `Repository/` : Les interfaces de repository et leurs implémentations.
+
+  - `Infrastructure/` : La partie Infrastructure de l'architecture Clean.
+
+    - `Persistence/` : Les composants liés à la persistance, tels que les repositories Doctrine.
+
+    - `Web/` : Les composants liés à l'interface utilisateur Web, tels que les contrôleurs Symfony.
+
+- `config/` : Les fichiers de configuration Symfony, y compris les paramètres, les services, etc.
+
+- `templates/` : Les fichiers de templates Twig (si vous utilisez Symfony pour la création de vues).
+
+- `tests/` : Les fichiers de tests unitaires pour tester la logique métier.
+
+- `var/` : Les fichiers de données temporaires et de cache générés par Symfony.
+
+- `vendor/` : Les dépendances installées via Composer.
+
+- `.env` : Le fichier d'environnement qui contient des variables d'environnement.
+
+- `.gitignore` : Le fichier pour spécifier les fichiers et répertoires à ignorer dans Git.
+
+- `composer.json` : Le fichier de configuration Composer pour la gestion des dépendances.
+
+- `phpunit.xml.dist` : Le fichier de configuration PHPUnit pour les tests unitaires.
+
+- `README.md` : La documentation de votre projet.
+
+Cette structure de projet vous permet de séparer clairement les différentes parties de l'architecture Clean (Domain, Application, Infrastructure) et de les organiser de manière modulaire pour une maintenance facile et une séparation claire des préoccupations. Vous pouvez personnaliser davantage cette structure en fonction des besoins spécifiques de votre projet.
