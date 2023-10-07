@@ -17,6 +17,9 @@
         "symfony/runtime": "6.3.*",
         "symfony/yaml": "6.3.*"
     },
+    "bin-dir": "src/Infrastructure/Symfony/Kernel.php", 
+    "skeleton": "src/Infrastructure/Symfony/",
+    "migrations_dir": "src/Infrastructure/Symfony/",
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
