@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: mysql-local-5.7
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    network_mode: "host"
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+
+volumes:
+  mysql-data:
+    driver: local
