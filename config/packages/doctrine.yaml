@@ -17,8 +17,8 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Infrastructure/Doctrine/Entity'
-                prefix: 'Infrastructure\Doctrine\Entity'
+                dir: '%kernel.project_dir%/src/Infrastructure/Symfony/Entity'
+                prefix: 'Infrastructure\Symfony\Entity'
                 alias: App
 
 when@test:
@@ -31,7 +31,7 @@ when@prod:
     doctrine:
         orm:
             auto_generate_proxy_classes: false
-            proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
+            proxy_dir: '%kernel.build_dir%/Symfony/orm/Proxies'
             query_cache_driver:
                 type: pool
                 pool: doctrine.system_cache_pool
